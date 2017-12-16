@@ -1,0 +1,42 @@
+{
+    "name": "My Extension",
+    "version": "0.1",
+    "description": "My Extension Description",
+    "minimum_chrome_version": "42",
+    "icons": {
+        "16": "img/logo/logo16.png",
+        "24": "img/logo/logo24.png",
+        "32": "img/logo/logo32.png",
+        "48": "img/logo/logo48.png",
+        "64": "img/logo/logo64.png",
+        "128": "img/logo/logo128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "img/logo/logo16.png",
+            "24": "img/logo/logo24.png",
+            "32": "img/logo/logo32.png"
+        },
+        "default_title": "My Extension"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://www.google.com"
+            ],
+            "js": [
+                "js/main/content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "debugger",
+        "storage"
+    ],
+    "background": {
+        "scripts": [
+            "js/main/background.js"
+        ]
+    },
+    "manifest_version": 2
+}
