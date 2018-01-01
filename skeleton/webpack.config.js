@@ -16,15 +16,15 @@ module.exports = [
 function buildConfiguration(browser) {
 
     let entry = {
-        "background": "./src/chrome/main/background.js",
-        "contentScript": "./src/chrome/main/contentScript.js"
+        "background": "./src/chrome/js/main/background.js",
+        "contentScript": "./src/chrome/js/main/contentScript.js"
     };
 
     return {
         entry: Object.assign(entry, sassFiles),
         output: {
             path: path.resolve(__dirname, "dist/" + browser + ""),
-            filename: "js/[name].js"
+            filename: "js/main/[name].js"
         },
 
         module: {
@@ -54,7 +54,8 @@ function buildConfiguration(browser) {
             modules: [
                 "node_modules",
                 path.resolve(__dirname, "src/" + browser + "/js"),
-                path.resolve(__dirname, "src/common/js")
+                path.resolve(__dirname, "src/common/js"),
+                "node_modules/browser_extension/src/chrome",
             ],
             extensions: [".js", ".json", ".css"],
         },
